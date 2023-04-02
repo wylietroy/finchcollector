@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ snowboard.brand }}{{ snowboard.model }}</h1>
+<ul>
+    <li>Brand: {{ snowboard.brand }}</li>
+    <li>Model: {{ snowboard.model }}</li>
+    <li>Size: {{ snowboard.size }}</li>
+    <li>Price: {{ snowboard.price }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All Snowboards</h1>
+<ul>
+    {% for board in boards %}
+    <li><a href="{% url 'snowboard_detail' snowboard.pk %}">{{ snowboard.brand }} {{ snowboard.model }}</a></li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Size</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for finch in finches %}
+        <tr>
+            <td>{{ snowboard.brand }}</td>
+            <td>{{ snowboard.model }}</td>
+            <td>{{ snowboard.size }}</td>
+            <td>${{ snowboard.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
