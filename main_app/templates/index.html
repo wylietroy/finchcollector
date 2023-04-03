@@ -1,0 +1,23 @@
+{% extends 'snowboards/base.html' %}
+
+{% block content %}
+<h1>All Snowboards</h1>
+<table class="table">
+    <thead>
+        <tr>
+         <th>Brand</th>
+         <th>Model</th>
+         <th>Size</th>
+         <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for snowboard in snowboards %}
+        <tr>
+            <td><a href="{% url 'detail' snowboard.id %}">{{ snowboard.name }}</a></td>
+            <td>{{ snowboard.brand }}</td>
+            <td>{{ snowboard.price }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
