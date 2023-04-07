@@ -54,7 +54,7 @@ def add_snowboarder(request, pk):
     if request.method == 'POST':
         name = request.POST.get('name')
         snowboarder = Snowboarder.objects.create(name=name, snowboarding=snowboarding)
-        return redirect('snowboarding_detail', pk=snowboarding.pk)
+        return redirect('snowboarding_detail', pk=snowboarding)
     return render(request, 'add_snowboarder.html', {'snowboarding': snowboarding})
 
 class SnowboardBrandList(ListView):
