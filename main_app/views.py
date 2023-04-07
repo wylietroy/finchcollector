@@ -44,3 +44,15 @@ class SnowboardUpdateView(UpdateView):
 class SnowboardDeleteView(DeleteView):
     model = Snowboard
     template_name = 'snowboard_confirm_delete.html'
+
+
+def snowboarding_detail(request, pk):
+    snowboarders = snowboarding.snowboarders.all()
+    return render(request, 'snowboarding_detail.html', {'snowboarding': snowboarding, 'snowboarders': snowboarders})
+
+def add_snowboarder(request, pk):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        snowboarder = Snowboarder.objects.create(name=name, snowboarding=snowboarding)
+        return redirect('snowboarding_detail', pk=snowboarding.pk)
+    return render(request, 'add_snowboarder.html', {'snowboarding': snowboarding})
