@@ -8,4 +8,23 @@
     <li><strong>Size: {{ snowboard.size }}</strong></li>
     <li><strong>Price: {{ snowboard.price }}</strong></li>
 </ul>
+
+<h1>{{ snowboarding.name }}</h1>
+
+<ul>
+{% for snowboarder in snowboarders %}
+    <li>{{ snowboarder.name }}</li>
+{% empty %}
+    <li>No snowboarders found.</li>
+{% endfor %}
+</ul>
+
+<h2>Add Snowboarder</h2>
+<form method="POST" action="{% url 'add_snowboarder' pk=snowboarding.pk %}">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+    <button type="submit">Add</button>
+</form>
+
 {% endblock %}

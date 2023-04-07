@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Add Snowboard Brand</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Brand</button>
+  </form>
+  
+  <hr>
+
+  <h2>Snowboarding List</h2>
+  <ul>
+    {% for snowboarding in snowboardings %}
+      <li>{{ snowboarding.name }} {% if snowboarding in form.snowboardings.value %}</li>
+      {% endif %}
+    {% empty %}
+      <li>No snowboardings found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

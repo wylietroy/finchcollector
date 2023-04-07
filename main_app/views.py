@@ -56,3 +56,7 @@ def add_snowboarder(request, pk):
         snowboarder = Snowboarder.objects.create(name=name, snowboarding=snowboarding)
         return redirect('snowboarding_detail', pk=snowboarding.pk)
     return render(request, 'add_snowboarder.html', {'snowboarding': snowboarding})
+
+class SnowboardBrandList(ListView):
+    model = SnowboardBrand
+    template_name = 'snowboard_brands.html'

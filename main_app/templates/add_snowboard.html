@@ -1,0 +1,14 @@
+{% extends 'snowboards/base.html' %}
+
+<h1>Add Snowboarder for {{ snowboarding.name }}</h1>
+
+<form method="POST" action="{% url 'add_snowboarder' pk=snowboarding.pk %}">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Snowboarder</button>
+</form>
+
+{% endfor %}
