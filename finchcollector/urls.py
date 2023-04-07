@@ -22,7 +22,7 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     path('snowboards/', snowboard_index, name='all_snowboards'),
     path('snowboards/<int:pk>/', snowboard_detail, name='snowboard_detail'),
-    path('create/', SnowboardCreateView.as_view(), name='snowboard_create'),
-    path('<int:pk>/update/', SnowboardUpdateView.as_view(), name='snowboard_update'),
-    path('<int:pk>/delete/', SnowboardDeleteView.as_view(), name='snowboard_delete'),
+    path('create/', views.SnowboardCreateView, name='snowboard_create'),
+    path('<int:pk>/update/', views.SnowboardUpdateView, name='snowboard_update'),
+    path('<int:pk>/delete/', views.SnowboardDeleteView, name='snowboard_delete'),
 ]
